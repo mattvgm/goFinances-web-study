@@ -23,15 +23,11 @@ const Import: React.FC = () => {
   const history = useHistory();
 
   async function handleUpload(): Promise<void> {
-    console.log('toastie');
     const data = new FormData();
     // eslint-disable-next-line array-callback-return
     uploadedFiles.map(eachFile => {
-      console.log(eachFile.file);
       data.append('file', eachFile.file);
     });
-    console.log(data);
-    // TODO
 
     try {
       await api.post('/transactions/import', data);
